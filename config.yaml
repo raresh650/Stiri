@@ -1,0 +1,221 @@
+# ============================================================
+#  CONFIGURARE STIRI 3DEXPOSED
+#  Aici schimbi sursele, cuvintele si ponderile.
+#  Atentie la spatiile de la inceputul randurilor (conteaza!).
+# ============================================================
+
+setari:
+  max_ore: 48              # stirile mai vechi de atat dispar
+  max_stiri: 250           # cate stiri apar cel mult pe pagina
+  scor_minim: 10           # stirile sub acest scor nu apar
+  prag_asemanare: 0.6      # 0-1: cat de asemanatoare sa fie titlurile ca sa fie socotite aceeasi stire
+
+# ---------------- SCORUL "CAT DE TARE E" (0-100) ----------------
+scor:
+  prospetime_max: 25                 # puncte pentru o stire abia aparuta
+  prospetime_injumatatire_ore: 12    # dupa atatea ore, punctele de prospetime se injumatatesc
+  puncte_per_sursa_extra: 12         # pentru fiecare sursa in plus care scrie despre acelasi subiect
+  surse_max: 36
+  hn_per_punct_pe_ora: 0.4           # Hacker News: puncte pe ora x aceasta valoare
+  hn_max: 30
+  cuvinte_bune_max: 40               # plafon pentru cuvintele bune
+
+# Cuvinte potrivite pentru un video 3D (cuvant: puncte).
+# Se potrivesc si formele cu -s, -ed, -ing (unveil = unveils, unveiled...).
+cuvinte_bune:
+  unveil: 14
+  reveal: 10
+  launch: 10
+  debut: 10
+  first ever: 14
+  "world's first": 14
+  first: 4
+  record: 10
+  largest: 10
+  biggest: 10
+  fastest: 12
+  tallest: 12
+  longest: 8
+  rocket: 10
+  starship: 12
+  spacex: 6
+  nasa: 5
+  moon: 8
+  mars: 8
+  satellite: 4
+  test flight: 10
+  maiden: 10
+  tesla: 6
+  roadster: 12
+  cybertruck: 6
+  supercar: 10
+  hypercar: 10
+  concept: 6
+  prototype: 10
+  robot: 10
+  robotaxi: 8
+  humanoid: 10
+  drone: 5
+  flying car: 12
+  evtol: 8
+  hypersonic: 10
+  fusion: 8
+  skyscraper: 10
+  megaproject: 12
+  bridge: 8
+  tunnel: 8
+  tower: 6
+  stadium: 6
+  building: 4
+  iphone: 6
+
+# Cuvinte care scad scorul (politica, crime, barfe, burse, opinii).
+cuvinte_rele:
+  election: 25
+  trump: 20
+  biden: 20
+  congress: 20
+  senate: 20
+  democrat: 20
+  republican: 20
+  politics: 20
+  political: 20
+  tariff: 15
+  war: 20
+  shooting: 30
+  murder: 30
+  killed: 25
+  dead: 20
+  dies: 20
+  arrested: 20
+  lawsuit: 12
+  sues: 12
+  court: 10
+  stock: 12
+  shares: 12
+  earnings: 15
+  investor: 10
+  ipo: 10
+  layoff: 12
+  opinion: 20
+  editorial: 20
+  review: 8
+  podcast: 15
+  how to: 10
+  deal: 12
+  black friday: 15
+  celebrity: 20
+
+# ---------------- UPCOMING ----------------
+upcoming:
+  lansari_spatiale: 40          # cate lansari cerem de la Launch Library 2 (o singura cerere pe ora)
+  spatiu_ignora: [Starlink]     # lansari de rutina pe care nu le vrem
+  # Fraze care arata ca stirea vorbeste despre ceva ce URMEAZA:
+  fraze:
+    - will unveil
+    - will reveal
+    - will launch
+    - will debut
+    - will open
+    - will be unveiled
+    - will be revealed
+    - set to launch
+    - set to unveil
+    - set to debut
+    - set to open
+    - set to arrive
+    - scheduled for
+    - scheduled to
+    - slated for
+    - slated to
+    - expected to launch
+    - expected to arrive
+    - expected to debut
+    - planned for
+    - coming
+    - arrives
+    - launches
+    - launching
+    - goes on sale
+    - release date
+    - next month
+    - next week
+    - later this year
+
+# ---------------- SURSE ----------------
+# tip: rss = flux obisnuit | google = Google News | hn = Hacker News
+# Ca sa scoti o sursa: sterge cele 4 randuri ale ei (sau pune # in fata lor).
+surse:
+  # --- Tech ---
+  - nume: The Verge
+    tip: rss
+    categorie: Tech
+    url: https://www.theverge.com/rss/index.xml
+  - nume: TechCrunch
+    tip: rss
+    categorie: Tech
+    url: https://techcrunch.com/feed/
+  - nume: Ars Technica
+    tip: rss
+    categorie: Tech
+    url: https://feeds.arstechnica.com/arstechnica/index
+  - nume: Hacker News
+    tip: hn
+    categorie: [Tech, Viral]
+    max: 40
+
+  # --- Masini ---
+  - nume: Electrek
+    tip: rss
+    categorie: Mașini
+    url: https://electrek.co/feed/
+  - nume: InsideEVs
+    tip: rss
+    categorie: Mașini
+    url: https://insideevs.com/rss/news/all/
+  - nume: Motor1
+    tip: rss
+    categorie: Mașini
+    url: https://www.motor1.com/rss/news/all/
+
+  # --- Spatiu ---
+  - nume: Space.com
+    tip: rss
+    categorie: Spațiu
+    url: https://www.space.com/feeds/all
+  - nume: SpaceNews
+    tip: rss
+    categorie: Spațiu
+    url: https://spacenews.com/feed/
+
+  # --- Constructii ---
+  - nume: New Atlas
+    tip: rss
+    categorie: Construcții
+    url: https://newatlas.com/index.rss
+  - nume: Dezeen
+    tip: rss
+    categorie: Construcții
+    url: https://www.dezeen.com/feed/
+  - nume: Designboom
+    tip: rss
+    categorie: Construcții
+    url: https://www.designboom.com/feed/
+
+  # --- Viral (Google News) ---
+  - nume: Google News
+    tip: google
+    categorie: Viral
+    url: https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en
+  - nume: Google News
+    tip: google
+    categorie: Viral
+    url: https://news.google.com/rss/search?q=unveils+OR+unveiled+OR+%22first+ever%22+when:1d&hl=en-US&gl=US&ceid=US:en
+  - nume: Google News
+    tip: google
+    categorie: Viral
+    url: https://news.google.com/rss/search?q=%22world%27s+largest%22+OR+%22world%27s+fastest%22+OR+%22world+record%22+when:2d&hl=en-US&gl=US&ceid=US:en
+  - nume: Google News
+    tip: google
+    categorie: Viral
+    url: https://news.google.com/rss/search?q=prototype+OR+humanoid+robot+OR+%22rocket+launch%22+when:1d&hl=en-US&gl=US&ceid=US:en
